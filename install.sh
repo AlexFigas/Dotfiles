@@ -4,21 +4,21 @@
 sudo apt update && sudo apt upgrade -y
 
 # Gnome and Grub customizers
-sudo apt install gnome-tweaks
-sudo apt install grub-customizer
+sudo apt install -y gnome-tweaks
+sudo apt install -y grub-customizer
 
 # Basics ################################################################################
-sudo apt install curl
-sudo apt install snapd
-sudo apt install git
-sudo apt install texlive-full
-sudo apt install libreoffice
+sudo apt install -y curl
+sudo apt install -y snapd
+sudo apt install -y git
+sudo apt install -y texlive-full
+sudo apt install -y libreoffice-gnome libreoffice
 
 # Programming ################################################################################
-sudo apt install nodejs
-sudo apt install npm
-sudo apt install python3
-sudo apt install openjdk-17-jdk
+sudo apt install -y nodejs
+sudo apt install -y npm
+sudo apt install -y python3
+sudo apt install -y openjdk-17-jdk
 # .NET SDK
 sudo apt-get update; \
   sudo apt-get install -y apt-transport-https && \
@@ -27,7 +27,7 @@ sudo apt-get update; \
 
 # VS Code ################################################################################
 sudo apt update
-sudo apt install software-properties-common apt-transport-https
+sudo apt install -y software-properties-common apt-transport-https
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -38,7 +38,7 @@ sudo apt install code
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt update
-sudo apt install-ros-noetic-desktop-full
+sudo apt install -y ros-noetic-desktop-full
 
 # Unity v################################################################################################################################################################
 sudo sh -c 'echo "deb https://hub.unity3d.com/linux/repos/deb stable main" > /etc/apt/sources.list.d/unityhub.list'
@@ -78,3 +78,5 @@ sudo apt-get update && sudo apt-get install -y  spotify-client
 # External Install
 # https://github.com/lawl/NoiseTorch/releases
 # https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases
+
+sudo apt update && sudo apt upgrade -y
