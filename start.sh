@@ -9,58 +9,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	chmod +x ./update.sh;
 
 	./install.sh;
-
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "INSTALL.SH DONE";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-
 	./update.sh;
-
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "UPDATE.SH DONE";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
-	echo "";
+	echo "DONE"
+else
+	echo "CANCELED"
 fi

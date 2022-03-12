@@ -52,7 +52,6 @@ sudo apt install -y blender
 sudo apt install -y gimp
 sudo apt install -y firefox
 sudo apt install -y qbittorrent
-sudo apt install -y zoom
 
 # Joplin for School Notes ################################################################################
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
@@ -78,5 +77,6 @@ sudo apt-get update && sudo apt-get install -y  spotify-client
 # External Install
 # https://github.com/lawl/NoiseTorch/releases
 # https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases
+# https://zoom.us/download?os=linux
 
 sudo apt update && sudo apt upgrade -y
