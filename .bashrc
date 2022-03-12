@@ -126,6 +126,7 @@ source ~/catkin_ws/devel/setup.bash # ROS Packages
 alias cda="cd /mnt/38109A3A1099FF56/Alex"
 alias cdu="cd /media/alexfigas/Backup\ Plus/Data/Alex/Universidade/2º\ Ano/4º\ Semestre/"
 alias cbrc="code ~/.bashrc"
+alias sbrc="source ~/.bashrc"
 alias cls="clear"
 alias explorer="xdg-open"
 alias fsds="~/Formula-Student-Driverless-Simulator/FSDS.sh"
