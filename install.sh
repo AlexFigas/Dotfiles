@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash 
 
 # My simple install script
 sudo apt update && sudo apt upgrade -y
