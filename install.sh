@@ -15,8 +15,12 @@ sudo apt install -y texlive-full
 sudo apt install -y libreoffice-gnome libreoffice
 
 # Programming ################################################################################
-sudo apt install -y nodejs
-sudo apt install -y npm
+# Nodejs
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - 
+sudo apt -y install nodejs
+sudo apt -y install gcc g++ make
+sudo apt install npm
+
 sudo apt install -y python3
 sudo apt install -y openjdk-17-jdk
 # .NET SDK
