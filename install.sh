@@ -25,7 +25,6 @@ sudo apt install npm
 sudo apt install -y python3
 python3 -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
 
-
 # Java 17
 sudo apt install -y openjdk-17-jdk
 
