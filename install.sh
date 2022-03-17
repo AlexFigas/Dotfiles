@@ -53,11 +53,19 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 sudo apt update
 sudo apt install -y ros-noetic-desktop-full
 
-# Unity v################################################################################################################################################################
+# Unity ################################################################################################################################################################
 sudo sh -c 'echo "deb https://hub.unity3d.com/linux/repos/deb stable main" > /etc/apt/sources.list.d/unityhub.list'
 wget -qO - https://hub.unity3d.com/linux/keys/public | sudo apt-key add -
 sudo apt update
 sudo apt-get install unityhub
+
+# PlatformIO ################################################################################################################################################################
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
+sudo service udev restart
+# Ubuntu/Debian
+sudo usermod -a -G dialout $USER
+sudo usermod -a -G plugdev $USER
 
 # Miscellaneous ################################################################################
 sudo apt install -y notepadqq 
