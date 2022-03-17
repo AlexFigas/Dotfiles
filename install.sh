@@ -21,8 +21,13 @@ sudo apt -y install nodejs
 sudo apt -y install gcc g++ make
 sudo apt install npm
 
+# Python3 and Libs
 sudo apt install -y python3
+python3 -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
+
+# Java 17
 sudo apt install -y openjdk-17-jdk
+
 # .NET SDK
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -96,7 +101,6 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 sudo apt-get update && sudo apt-get install -y  spotify-client
 
 # External Install
-# https://github.com/lawl/NoiseTorch/releases
 # https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases
 # https://zoom.us/download?os=linux
 
