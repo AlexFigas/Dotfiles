@@ -24,6 +24,7 @@ sudo apt install npm
 # Python3 and Libs
 sudo apt install -y python3
 python3 -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
+sudo apt install -y python-is-python3
 
 # Java 17
 sudo apt install -y openjdk-17-jdk
@@ -38,7 +39,7 @@ sudo apt-get update; \
   sudo apt-get install -y dotnet-sdk-6.0
 # Mono (.NET)
 sudo apt update
-sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 sudo apt-add-repository 'deb https://download.mono-project.com/repo/ubuntu stable-focal main'
 sudo apt install -y mono-complete 
@@ -81,12 +82,6 @@ sudo apt install -y qbittorrent
 # Joplin for School Notes ################################################################################
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 
-# Discord ################################################################################
-sudo apt update
-sudo apt install -y gdebi-core wget
-wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-sudo gdebi ~/discord.deb 
-
 # OBS ################################################################################
 sudo apt install -y ffmpeg
 sudo apt install -y v4l2loopback-dkms
@@ -99,8 +94,20 @@ curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update && sudo apt-get install -y  spotify-client
 
-# External Install
-# https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases
-# https://zoom.us/download?os=linux
+# Formula Student Driverless Simulator
+# https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases/tag/v2.0.0 -> colocar dentro da pasta clonada do FSDS
+sudo apt-get install -y ros-noetic-tf2-geometry-msgs ros-noetic-rqt-multiplot ros-noetic-joy ros-noetic-cv-bridge ros-noetic-image-transport libyaml-cpp-dev libcurl4-openssl-dev 
+git clone https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator.git --recurse-submodules 
+cd Formula-Student-Driverless-Simulator
+git checkout v2.0.0
+AirSim/setup.sh # Moved discord because this was unninstalling Discord
+cd ros
+catkin_make
+
+# Discord ################################################################################
+sudo apt update
+sudo apt install -y gdebi-core wget
+wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo gdebi ~/discord.deb 
 
 sudo apt update && sudo apt upgrade -y
