@@ -68,7 +68,6 @@ sudo apt-get install unityhub
 python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 sudo service udev restart
-# Ubuntu/Debian
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
 

@@ -123,7 +123,7 @@ source /opt/ros/noetic/setup.bash # ROS
 source ~/catkin_ws/devel/setup.bash # ROS Packages
 
 # Alias
-alias cda="cd /media/alexfigas/Windows/Alex/"
+alias cda="cd /mnt/38109A3A1099FF56/Alex/"
 alias cdu="cd /media/alexfigas/Backup\ Plus/Data/Alex/Universidade/2º\ Ano/4º\ Semestre/"
 alias cbrc="code ~/.bashrc"
 alias sbrc="source ~/.bashrc"
