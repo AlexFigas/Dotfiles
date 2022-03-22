@@ -25,6 +25,8 @@ sudo apt install npm
 sudo apt install -y python3
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install -y python3.10
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
+sudo apt install -y python3-venv
 python3 -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
 sudo apt install -y python-is-python3
 
