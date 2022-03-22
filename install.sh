@@ -23,6 +23,8 @@ sudo apt install npm
 
 # Python3 and Libs
 sudo apt install -y python3
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install -y python3.10
 python3 -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
 sudo apt install -y python-is-python3
 
