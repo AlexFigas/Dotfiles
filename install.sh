@@ -14,6 +14,10 @@ sudo apt install -y git
 sudo apt install -y texlive-full
 sudo apt install -y libreoffice-gnome libreoffice
 
+# Wireshark ################################################################################
+sudo apt install -y wireshark
+sudo usermod -aG wireshark $(whoami)
+
 # Programming ################################################################################
 # Nodejs
 curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - 

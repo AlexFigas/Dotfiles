@@ -10,7 +10,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
 	./install.sh;
 	./update.sh;
-	echo "DONE"
+	echo "DONE";
 else
-	echo "CANCELED"
+	echo "CANCELED";
 fi
+
+echo "REBOOTING in 1 minute";
+sudo reboot +1;
