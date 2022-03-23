@@ -2,7 +2,7 @@
 
 # Simple start bash
 
-read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) -> " -n 1;
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	chmod +x ./install.sh;
@@ -10,11 +10,13 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
 	./install.sh;
 	./update.sh;
-	echo "DONE";
+	echo "Installed and Updated";
 else
-	echo "CANCELED";
+	echo "Canceled Install and Update";
 fi
 
-echo "REBOOTING in 1 minute";
-sleep 1m;
-sudo reboot;
+read -p "Want to reboot? (y/n) -> " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	sudo reboot;
+fi
