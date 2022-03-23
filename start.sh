@@ -16,4 +16,5 @@ else
 fi
 
 echo "REBOOTING in 1 minute";
-sudo reboot +1;
+sleep 1m;
+sudo reboot;
