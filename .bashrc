@@ -125,7 +125,8 @@ export LD_LIBRARY_PATH=/home/alexfigas/catkin_ws/devel/lib:/opt/ros/noetic/lib:/
 
 # Source
 source /opt/ros/noetic/setup.bash # ROS
-source ~/catkin_ws/devel/setup.bash # ROS Packages
+source ~/catkin_ws/devel/setup.bash # ROS Packages (catkin_ws)
+source ~/Formula-Student-Driverless-Simulator/ros/devel/setup.bash # ROS Packages (fsds)
 
 # Alias
 alias cda="cd /mnt/38109A3A1099FF56/Alex/"
