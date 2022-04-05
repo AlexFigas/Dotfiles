@@ -13,4 +13,7 @@ cp ./.gitconfig ~/.gitconfig
 # Bashrc Setup
 cp ./.bashrc ~/.bashrc
 
+# .vscode Global Git Ignore
+cp ./.gitignore ~/.gitignore
+
 source ~/.bashrc
