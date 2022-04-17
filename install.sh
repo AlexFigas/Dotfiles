@@ -1,7 +1,8 @@
 #!/bin/bash 
 
 # My simple install script
-sudo apt update && sudo apt upgrade -y
+sudo apt update 
+sudo apt upgrade -y
 
 # Gnome and Grub customizers
 sudo apt install -y gnome-tweaks
@@ -9,7 +10,6 @@ sudo apt install -y grub-customizer
 
 # Basics ################################################################################
 sudo apt install -y curl
-sudo apt install -y snapd
 sudo apt install -y git
 sudo apt install -y texlive-full
 sudo apt install -y libreoffice-gnome libreoffice
@@ -23,7 +23,7 @@ sudo usermod -aG wireshark $(whoami)
 curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - 
 sudo apt -y install nodejs
 sudo apt -y install gcc g++ make
-sudo apt install npm
+sudo apt -y install npm
 
 # Python3 and Libs
 sudo apt install -y python3
@@ -60,6 +60,7 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt update
 sudo apt install code
+rm -rfv packages.microsoft.gpg
 
 # ROS Noetic ################################################################################
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -118,4 +119,5 @@ sudo apt install -y gdebi-core wget
 wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 sudo gdebi ~/discord.deb 
 
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
