@@ -1,5 +1,9 @@
 [user]
-	name = alexfigas
+	name = Alexandre Figueiredo
 	email = alexfigas11@gmail.com
+	username = alexfigas
 [core]
+	editor = code
 	autocrlf = input
+[web]
+	browser = firefox
