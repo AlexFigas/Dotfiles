@@ -7,6 +7,7 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
 catkin_make
 
+cd /media/alexfigas/Windows/Alex/Git/Dotfiles/
 # Git Setup
 cp ./.gitconfig ~/.gitconfig
 

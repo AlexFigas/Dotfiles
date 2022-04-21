@@ -10,6 +10,7 @@ sudo apt install -y grub-customizer
 
 # Basics ################################################################################
 sudo apt install -y curl
+add-apt-repository ppa:git-core/ppa
 sudo apt install -y git
 sudo apt install -y texlive-full
 sudo apt install -y libreoffice-gnome libreoffice
@@ -106,6 +107,7 @@ sudo apt-get update && sudo apt-get install -y  spotify-client
 # Formula Student Driverless Simulator
 # https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases/tag/v2.0.0 -> colocar dentro da pasta clonada do FSDS
 sudo apt-get install -y ros-noetic-tf2-geometry-msgs ros-noetic-rqt-multiplot ros-noetic-joy ros-noetic-cv-bridge ros-noetic-image-transport libyaml-cpp-dev libcurl4-openssl-dev 
+cd ~
 git clone https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator.git --recurse-submodules 
 cd Formula-Student-Driverless-Simulator
 git checkout v2.0.0
@@ -114,6 +116,7 @@ cd ros
 catkin_make
 
 # Discord ################################################################################
+cd ~
 sudo apt update
 sudo apt install -y gdebi-core wget
 wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
