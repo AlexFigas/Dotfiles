@@ -6,7 +6,7 @@ Simple installation of Dotfiles for fresh installs of any Ubuntu based Linux dis
 
 ### Dependencies
 
-* Ubuntu based Linux distribution (in my case Pop!_OS)
+* Ubuntu 20.04 based Linux distribution (in my case Pop!_OS)
 * APT package manager
 
 ### Installing
