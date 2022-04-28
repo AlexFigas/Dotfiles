@@ -23,7 +23,9 @@ sudo apt purge snapd
 sudo apt install gnome-tweaks -y
 sudo apt install gnome-shell-extensions -y
 flatpak install flathub com.mattjakeman.ExtensionManager -y
-sudo apt install grub-customizer -y
+sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
+sudo apt-get update
+sudo apt-get install grub-customizer -y
 
 # Multimedia Codecs and VLC
 sudo apt install ubuntu-restricted-extras -y && sudo apt install vlc -y
@@ -68,7 +70,11 @@ flatpak install flathub com.obsproject.Studio -y
 flatpak install flathub com.spotify.Client -y
 
 # Discord
-flatpak install flathub com.discordapp.Discord -y
+sudo apt update
+sudo apt install -y gdebi-core 
+wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo gdebi ~/discord.deb 
+rm discord.deb
 
 # Programming ################################################################################
 
@@ -135,9 +141,7 @@ sudo apt autopurge
 sudo apt autoremove
 sudo apt autoclean
 sudo flatpak update -y
-
-
-
+sudo flatpak uninstall --unused -y
 
 #####################################################################################################
 
