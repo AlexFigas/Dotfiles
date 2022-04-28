@@ -7,8 +7,6 @@
 	autocrlf = input
 [web]
 	browser = firefox
-<<<<<<< HEAD
-=======
 [safe]
 	directory = /mnt/38109A3A1099FF56/Alex/Aulas/AAV/Projeto
 	directory = /mnt/38109A3A1099FF56/Alex/Aulas/CSM/tps
@@ -19,4 +17,3 @@
 	directory = "/mnt/38109A3A1099FF56/Alex/Git/Arduino Uno Projects"
 	directory = /mnt/38109A3A1099FF56/Alex/Git/Dotfiles
 	directory = /mnt/38109A3A1099FF56/Alex/Git/ifs-website
->>>>>>> 3568528 (Updated)

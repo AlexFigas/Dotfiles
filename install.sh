@@ -1,32 +1,84 @@
 #!/bin/bash 
 
 # My simple install script
-sudo apt update 
-sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 
-# Gnome and Grub customizers
-sudo apt install -y gnome-tweaks
-sudo apt install -y grub-customizer
+# Initial Setup ################################################################################
+# Flatpacks
+sudo apt install flatpak -y
+sudo apt install gnome-software-plugin-flatpak -y 
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo apt install gnome-software gnome-software-plugin-flatpak -y
+
+# Remove snaps
+sudo snap remove firefox
+sudo snap remove snapd-desktop-integration
+sudo snap remove gtk-common-themes
+sudo snap remove gnome-3-38-2004
+sudo snap remove bare core20
+snap remove snapd
+sudo apt purge snapd
+
+# Tweaks and Costumization
+sudo apt install gnome-tweaks -y
+sudo apt install gnome-shell-extensions -y
+flatpak install flathub com.mattjakeman.ExtensionManager -y
+sudo apt install grub-customizer -y
+
+# Multimedia Codecs and VLC
+sudo apt install ubuntu-restricted-extras -y && sudo apt install vlc -y
+
+# Firewall
+sudo systemctl enable ufw
+
+# Preload
+sudo apt install preload -y
+
+# Laptop
+sudo apt install tlp tlp-rdw -y
+sudo systemctl enable tlp
+sudo systemctl start tlp
+
+# Limpeza do disco
+sudo apt install bleachbit -y
 
 # Basics ################################################################################
-sudo apt install -y curl
-add-apt-repository ppa:git-core/ppa
-sudo apt install -y git
-sudo apt install -y texlive-full
-sudo apt install -y libreoffice-gnome libreoffice
 
-# Wireshark ################################################################################
-sudo apt install -y wireshark
-sudo usermod -aG wireshark $(whoami)
+# Curl
+sudo apt install curl -y
+
+# Git
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt install git -y
+
+# Latex and office
+sudo apt install texlive-full -y
+sudo apt install libreoffice-gnome libreoffice -y
+
+# Miscellaneous ################################################################################
+sudo apt install -y notepadqq # Notepad++
+sudo apt install -y blender # Blender
+sudo apt install -y gimp # Gimp
+sudo apt install -y qbittorrent # Qbittorrent
+
+# OBS
+flatpak install flathub com.obsproject.Studio -y
+
+# Spotify
+flatpak install flathub com.spotify.Client -y
+
+# Discord
+flatpak install flathub com.discordapp.Discord -y
 
 # Programming ################################################################################
+
 # Nodejs
 curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - 
 sudo apt -y install nodejs
 sudo apt -y install gcc g++ make
 sudo apt -y install npm
 
-# Python3 and Libs
+# Python3.10 and Libs
 sudo apt install -y python3
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install -y python3.10
@@ -39,88 +91,90 @@ sudo apt install -y python-is-python3
 sudo apt install -y openjdk-17-jdk
 
 # .NET SDK
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-6.0
-# Mono (.NET)
 sudo apt update
+sudo apt install -y apt-transport-https
+sudo apt update
+sudo apt install dotnet-sdk-6.0 -y
+# Mono (for .NET)
 sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates software-properties-common
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-sudo apt-add-repository 'deb https://download.mono-project.com/repo/ubuntu stable-focal main'
-sudo apt install -y mono-complete 
+sudo apt install mono-complete -y
 
-# VS Code ################################################################################
+# VisualStudio Code
 sudo apt update
-sudo apt install -y software-properties-common apt-transport-https
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt install -y curl apt-transport-https
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/ms-vscode-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ms-vscode-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 sudo apt update
-sudo apt install code
-rm -rfv packages.microsoft.gpg
+sudo apt install -y code
 
-# ROS Noetic ################################################################################
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-sudo apt update
-sudo apt install -y ros-noetic-desktop-full
+# University ################################################################################
 
-# Unity ################################################################################################################################################################
-sudo sh -c 'echo "deb https://hub.unity3d.com/linux/repos/deb stable main" > /etc/apt/sources.list.d/unityhub.list'
-wget -qO - https://hub.unity3d.com/linux/keys/public | sudo apt-key add -
-sudo apt update
-sudo apt-get install unityhub
+# Wireshark
+sudo apt install wireshark -y
+sudo usermod -aG wireshark $(whoami)
 
-# PlatformIO ################################################################################################################################################################
+# Unity
+flatpak install flathub com.unity.UnityHub
+
+# PlatformIO
 python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 sudo service udev restart
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
 
-# Miscellaneous ################################################################################
-sudo apt install -y notepadqq 
-sudo apt install -y blender
-sudo apt install -y gimp
-sudo apt install -y firefox
-sudo apt install -y qbittorrent
-
-# Joplin for School Notes ################################################################################
+# Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 
-# OBS ################################################################################
-sudo apt install -y ffmpeg
-sudo apt install -y v4l2loopback-dkms
-sudo add-apt-repository ppa:obsproject/obs-studio
-sudo apt update
-sudo apt install -y obs-studio
+# Final update, upgrade and clean junk ################################################################################
+sudo apt update && sudo apt upgrade -y
+sudo apt autopurge
+sudo apt autoremove
+sudo apt autoclean
+sudo flatpak update -y
 
-# Spotify ################################################################################
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update && sudo apt-get install -y  spotify-client
+
+
+
+#####################################################################################################
+
+# TODO ROS Noetic
+# sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+# depois ir a software & updates e mudar a release para "focal"
+# sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstool build-essential
+# sudo rosdep init
+# rosdep update
+# cd ~/ros_catkin_ws
+# rosinstall_generator desktop --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+# mkdir ./src
+# vcs import --input noetic-desktop.rosinstall ./src
+# rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y
 
 # Formula Student Driverless Simulator
 # https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases/tag/v2.0.0 -> colocar dentro da pasta clonada do FSDS
-sudo apt-get install -y ros-noetic-tf2-geometry-msgs ros-noetic-rqt-multiplot ros-noetic-joy ros-noetic-cv-bridge ros-noetic-image-transport libyaml-cpp-dev libcurl4-openssl-dev 
-cd ~
-git clone https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator.git --recurse-submodules 
-cd Formula-Student-Driverless-Simulator
-git checkout v2.0.0
-AirSim/setup.sh # Moved discord because this was unninstalling Discord
-cd ros
-catkin_make
+# sudo apt-get install -y ros-noetic-tf2-geometry-msgs ros-noetic-rqt-multiplot ros-noetic-joy ros-noetic-cv-bridge ros-noetic-image-transport libyaml-cpp-dev libcurl4-openssl-dev 
+# cd ~
+# git clone https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator.git --recurse-submodules 
+# cd Formula-Student-Driverless-Simulator
+# git checkout v2.0.0
+# AirSim/setup.sh # Moved discord because this was unninstalling Discord
+# cd ros
+# catkin_make
 
-# Discord ################################################################################
-cd ~
-sudo apt update
-sudo apt install -y gdebi-core wget
-wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-sudo gdebi ~/discord.deb 
+#####################################################################################################
 
-sudo apt update
-sudo apt upgrade -y
+
+
+
+
+
+
+
+
+
+
+
+

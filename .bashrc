@@ -116,21 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export LD_LIBRARY_PATH=/home/alexfigas/catkin_ws/devel/lib:/opt/ros/noetic/lib:/usr/local/lib:/your/custom/path/
-
 # My .bashrc
 
 # Source
-source /opt/ros/noetic/setup.bash # ROS
-source ~/catkin_ws/devel/setup.bash # ROS Packages (catkin_ws)
-source ~/Formula-Student-Driverless-Simulator/ros/devel/setup.bash # ROS Packages (fsds)
+# source /opt/ros/noetic/setup.bash # ROS
+# source ~/catkin_ws/devel/setup.bash # ROS Packages (catkin_ws)
+# source ~/Formula-Student-Driverless-Simulator/ros/devel/setup.bash # ROS Packages (fsds)
 
 # Alias
 alias cda="cd /mnt/38109A3A1099FF56/Alex/"
-alias cdu="cd /media/alexfigas/Backup\ Plus/Data/Alex/Universidade/2º\ Ano/4º\ Semestre/"
 alias cbrc="code ~/.bashrc"
 alias sbrc="source ~/.bashrc"
 alias cls="clear"
