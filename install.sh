@@ -6,7 +6,7 @@ sudo apt update && sudo apt upgrade -y
 # Initial Setup ################################################################################
 # Flatpacks
 sudo apt install flatpak -y
-sudo apt install gnome-software-plugin-flatpak -y 
+sudo apt install gnome-software-plugin-flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo apt install gnome-software gnome-software-plugin-flatpak -y
 
@@ -46,6 +46,9 @@ sudo apt install bleachbit -y
 
 # Basics ################################################################################
 
+# Firefox
+flatpak install flathub org.mozilla.firefox -y
+
 # Curl
 sudo apt install curl -y
 
@@ -62,6 +65,7 @@ sudo apt install -y notepadqq # Notepad++
 sudo apt install -y blender # Blender
 sudo apt install -y gimp # Gimp
 sudo apt install -y qbittorrent # Qbittorrent
+sido apt install -y thunderbird # Thunderbird
 
 # OBS
 flatpak install flathub com.obsproject.Studio -y
