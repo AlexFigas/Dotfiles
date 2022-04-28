@@ -12,6 +12,7 @@ sudo apt install gnome-software gnome-software-plugin-flatpak -y
 
 # Remove snaps
 sudo snap remove firefox
+sudo snap remove snap-store
 sudo snap remove snapd-desktop-integration
 sudo snap remove gtk-common-themes
 sudo snap remove gnome-3-38-2004
