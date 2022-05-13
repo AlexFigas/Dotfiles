@@ -66,7 +66,8 @@ sudo apt install -y notepadqq # Notepad++
 sudo apt install -y blender # Blender
 sudo apt install -y gimp # Gimp
 sudo apt install -y qbittorrent # Qbittorrent
-sido apt install -y thunderbird # Thunderbird
+sudo apt install -y thunderbird # Thunderbird
+flatpak install flathub com.bitwarden.desktop -y # Bitwarden
 
 # OBS
 flatpak install flathub com.obsproject.Studio -y
@@ -120,6 +121,10 @@ curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ms-vscode-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 sudo apt update
 sudo apt install -y code
+# For live share
+echo "deb http://security.ubuntu.com/ubuntu impish-security main" | sudo tee /etc/apt/sources.list.d/impish-security.list
+sudo apt update
+sudo apt install libssl1.1
 
 # University ################################################################################
 
@@ -131,6 +136,8 @@ sudo usermod -aG wireshark $(whoami)
 flatpak install flathub com.unity.UnityHub
 
 # PlatformIO
+sudo apt -y install platformio
+sudo apt install -y platformio-doc python-semantic-version-doc python3-wxgtk4.0
 python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 sudo service udev restart
