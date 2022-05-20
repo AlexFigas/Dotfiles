@@ -69,6 +69,9 @@ sudo apt install -y qbittorrent # Qbittorrent
 sudo apt install -y thunderbird # Thunderbird
 flatpak install flathub com.bitwarden.desktop -y # Bitwarden
 
+# Putty
+sudo apt install putty -y
+
 # OBS
 flatpak install flathub com.obsproject.Studio -y
 
