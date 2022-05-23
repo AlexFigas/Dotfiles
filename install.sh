@@ -72,12 +72,6 @@ flatpak install flathub com.bitwarden.desktop -y # Bitwarden
 # Putty
 sudo apt install putty -y
 
-# OBS
-flatpak install flathub com.obsproject.Studio -y
-
-# Spotify
-flatpak install flathub com.spotify.Client -y
-
 # Discord
 sudo apt update
 sudo apt install -y gdebi-core 
@@ -102,8 +96,9 @@ sudo apt install -y python3-venv
 python3 -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
 sudo apt install -y python-is-python3
 
-# Java 17
+# Java
 sudo apt install -y openjdk-17-jdk
+sudo apt install -y openjdk-8-jdk
 
 # .NET SDK
 wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -160,43 +155,3 @@ sudo apt autoremove
 sudo apt autoclean
 sudo flatpak update -y
 sudo flatpak uninstall --unused -y
-
-#####################################################################################################
-
-# TODO ROS Noetic
-# sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-# depois ir a software & updates e mudar a release para "focal"
-# sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstool build-essential
-# sudo rosdep init
-# rosdep update
-# cd ~/ros_catkin_ws
-# rosinstall_generator desktop --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
-# mkdir ./src
-# vcs import --input noetic-desktop.rosinstall ./src
-# rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y
-
-# Formula Student Driverless Simulator
-# https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator/releases/tag/v2.0.0 -> colocar dentro da pasta clonada do FSDS
-# sudo apt-get install -y ros-noetic-tf2-geometry-msgs ros-noetic-rqt-multiplot ros-noetic-joy ros-noetic-cv-bridge ros-noetic-image-transport libyaml-cpp-dev libcurl4-openssl-dev 
-# cd ~
-# git clone https://github.com/FS-Driverless/Formula-Student-Driverless-Simulator.git --recurse-submodules 
-# cd Formula-Student-Driverless-Simulator
-# git checkout v2.0.0
-# AirSim/setup.sh # Moved discord because this was unninstalling Discord
-# cd ros
-# catkin_make
-
-#####################################################################################################
-
-
-
-
-
-
-
-
-
-
-
-
-
