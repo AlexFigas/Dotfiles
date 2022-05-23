@@ -10,7 +10,7 @@ catkin_make
 cd /mnt/38109A3A1099FF56/Alex/Git/Dotfiles
 
 # remove snaps forever
-cp ./nosnap.pref /etc/apt/preferences.d/
+sudo cp ./nosnap.pref /etc/apt/preferences.d/
 sudo apt update
 
 # Git Setup
