@@ -1,11 +1,7 @@
 #!/bin/bash 
 
 # Simple update and setup
-
-# Catkin Setup
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws
-catkin_make
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' # Minimize on click
 
 cd /mnt/38109A3A1099FF56/Alex/Git/Dotfiles
 
