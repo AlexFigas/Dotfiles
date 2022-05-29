@@ -3,9 +3,10 @@
 # Simple update and setup
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' # Minimize on click
 
-cd /mnt/38109A3A1099FF56/Alex/Git/Dotfiles
+cd /mnt/C40E3ADB0E3AC668/Alex/Git/Dotfiles
 
 # remove snaps forever
+rm -rfv ~/snap/
 sudo cp ./nosnap.pref /etc/apt/preferences.d/
 sudo apt update
 
