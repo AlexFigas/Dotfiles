@@ -18,13 +18,13 @@ sudo snap remove gtk-common-themes
 sudo snap remove gnome-3-38-2004
 sudo snap remove bare core20
 snap remove snapd
-sudo apt purge snapd
+sudo apt purge snapd -y
 
 # Tweaks and Costumization
 sudo apt install gnome-tweaks -y
 sudo apt install gnome-shell-extensions -y
 flatpak install flathub com.mattjakeman.ExtensionManager -y
-sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
+sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer -y
 sudo apt-get update
 sudo apt-get install grub-customizer -y
 
@@ -54,11 +54,10 @@ flatpak install flathub org.mozilla.firefox -y
 sudo apt install curl -y
 
 # Git
-sudo add-apt-repository ppa:git-core/ppa
+sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt install git -y
 
-# Latex and office
-sudo apt install texlive-full -y
+# Office
 sudo apt install libreoffice-gnome libreoffice -y
 
 # Miscellaneous ################################################################################
@@ -66,11 +65,13 @@ sudo apt install -y notepadqq # Notepad++
 sudo apt install -y blender # Blender
 sudo apt install -y gimp # Gimp
 sudo apt install -y qbittorrent # Qbittorrent
-sudo apt install -y thunderbird # Thunderbird
-flatpak install flathub com.bitwarden.desktop -y # Bitwarden
+sudo apt install -y neofetch # Neofetch
+sudo apt install -y net-tools # Net-tools
 
-# Putty
-sudo apt install putty -y
+# Spotify
+curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update && sudo apt-get install spotify-client
 
 # Discord
 sudo apt update
@@ -89,7 +90,7 @@ sudo apt -y install npm
 
 # Python3.10 and Libs
 sudo apt install -y python3
-sudo add-apt-repository ppa:deadsnakes/ppa
+sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt install -y python3.10
 curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 sudo apt install -y python3-venv
@@ -127,10 +128,6 @@ sudo apt install libssl1.1
 
 # University ################################################################################
 
-# Wireshark
-sudo apt install wireshark -y
-sudo usermod -aG wireshark $(whoami)
-
 # Unity
 sudo sh -c 'echo "deb https://hub.unity3d.com/linux/repos/deb stable main" > /etc/apt/sources.list.d/unityhub.list'
 wget -qO - https://hub.unity3d.com/linux/keys/public | sudo apt-key add -
@@ -145,14 +142,6 @@ curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/s
 sudo service udev restart
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
-
-# Joplin
-wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
-
-# Spotify
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update && sudo apt-get install spotify-client
 
 # Final update, upgrade and clean junk ################################################################################
 sudo apt update && sudo apt upgrade -y
