@@ -118,16 +118,9 @@ fi
 
 # My .bashrc
 
-# Source
-# source /opt/ros/noetic/setup.bash # ROS
-# source ~/catkin_ws/devel/setup.bash # ROS Packages (catkin_ws)
-# source ~/Formula-Student-Driverless-Simulator/ros/devel/setup.bash # ROS Packages (fsds)
-
 # Alias
-alias cda="cd /mnt/38109A3A1099FF56/Alex/"
+alias cda="cd /mnt/C40E3ADB0E3AC668/Alex/"
 alias cbrc="code ~/.bashrc"
 alias sbrc="source ~/.bashrc"
 alias cls="clear"
 alias explorer="xdg-open"
-alias fsds="~/Formula-Student-Driverless-Simulator/FSDS.sh"
-alias fsbridge="roslaunch fsds_ros_bridge fsds_ros_bridge.launch manual_mode:=true"
