@@ -23,7 +23,6 @@ sudo apt purge snapd -y
 # Tweaks and Costumization
 sudo apt install gnome-tweaks -y
 sudo apt install gnome-shell-extensions -y
-flatpak install flathub com.mattjakeman.ExtensionManager -y
 sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer -y
 sudo apt-get update
 sudo apt-get install grub-customizer -y
@@ -48,7 +47,7 @@ sudo apt install bleachbit -y
 # Basics ################################################################################
 
 # Firefox
-flatpak install flathub org.mozilla.firefox -y
+flatpak install flathub org.mozilla.Firefox -y
 
 # Curl
 sudo apt install curl -y
@@ -99,8 +98,8 @@ sudo apt install -y python-is-python3
 sudo apt install python3-pip -y
 
 # Java
-sudo apt install -y openjdk-17-jdk
-sudo apt install -y openjdk-8-jdk
+sudo apt install openjdk-18-jdk -y
+sudo apt install openjdk-8-jdk -y
 
 # .NET SDK
 wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
