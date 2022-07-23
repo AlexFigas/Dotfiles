@@ -127,23 +127,6 @@ echo "deb http://security.ubuntu.com/ubuntu impish-security main" | sudo tee /et
 sudo apt update
 sudo apt install libssl1.1
 
-# University ################################################################################
-
-# Unity
-sudo sh -c 'echo "deb https://hub.unity3d.com/linux/repos/deb stable main" > /etc/apt/sources.list.d/unityhub.list'
-wget -qO - https://hub.unity3d.com/linux/keys/public | sudo apt-key add -
-sudo apt update
-sudo apt install unityhub -y
-
-# PlatformIO
-sudo apt -y install platformio
-sudo apt install -y platformio-doc python-semantic-version-doc python3-wxgtk4.0
-python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
-curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
-sudo service udev restart
-sudo usermod -a -G dialout $USER
-sudo usermod -a -G plugdev $USER
-
 # Final update, upgrade and clean junk ################################################################################
 sudo apt update && sudo apt upgrade -y
 sudo apt autopurge
